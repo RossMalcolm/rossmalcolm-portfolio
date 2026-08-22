@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ross Malcolm — DevOps Engineer</title>
+<meta name="description" content="Ross Malcolm — DevOps Engineer and Software Developer based in Kitchener, ON. 5+ years in cloud infrastructure, CI/CD, and automation.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1420;
+    --bg-alt:#141b2b;
+    --card:#1a2236;
+    --border:#2a3347;
+    --text:#eef1f7;
+    --text-dim:#a8b2c6;
+    --text-faint:#6c7692;
+    --accent:#7ea8ff;
+    --accent-dim:#4a6fb5;
+    --tag-bg:#20293e;
+    --maxw:920px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,20,32,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .nav-name{font-weight:700;font-size:1rem;color:var(--text);letter-spacing:0.02em;}
+  .nav-links{display:flex;gap:24px;font-size:0.9rem;}
+  .nav-links a{color:var(--text-dim);}
+  .nav-links a:hover{color:var(--accent);text-decoration:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:72px 0 56px;
+    display:flex;align-items:center;gap:40px;
+    flex-wrap:wrap;
+  }
+  .hero-photo{
+    width:168px;height:168px;border-radius:50%;
+    object-fit:cover;object-position:center;
+    border:3px solid var(--border);
+    flex-shrink:0;
+  }
+  .hero-text{flex:1;min-width:280px;}
+  .eyebrow{
+    color:var(--accent);font-size:0.85rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:2.6rem;
+    line-height:1.1;
+    margin-bottom:12px;
+    color:var(--text);
+  }
+  .hero-role{color:var(--text-dim);font-size:1.15rem;margin-bottom:18px;}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:14px 20px;
+    font-size:0.92rem;color:var(--text-faint);
+  }
+  .hero-meta span{display:inline-flex;align-items:center;gap:6px;}
+
+  /* ---------- Section ---------- */
+  section{padding:44px 0;border-top:1px solid var(--border);}
+  section:first-of-type{border-top:none;}
+  h2{
+    font-family:'Fraunces',serif;
+    font-size:1.5rem;font-weight:600;
+    margin-bottom:20px;color:var(--text);
+  }
+  .lede{color:var(--text-dim);font-size:1.05rem;max-width:70ch;}
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+  }
+  .skill-group h3{
+    font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--text-faint);margin-bottom:12px;font-weight:600;
+  }
+  .tag-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    background:var(--tag-bg);
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    padding:5px 12px;border-radius:20px;
+    font-size:0.85rem;
+  }
+
+  /* ---------- Experience ---------- */
+  .job{
+    position:relative;
+    padding:0 0 32px 28px;
+    border-left:2px solid var(--border);
+    margin-left:6px;
+  }
+  .job:last-child{padding-bottom:0;}
+  .job::before{
+    content:'';position:absolute;left:-7px;top:4px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--bg);
+  }
+  .job-header{
+    display:flex;justify-content:space-between;align-items:baseline;
+    flex-wrap:wrap;gap:6px 16px;margin-bottom:4px;
+  }
+  .job-title{font-weight:700;font-size:1.08rem;color:var(--text);}
+  .job-dates{font-size:0.85rem;color:var(--text-faint);white-space:nowrap;}
+  .job-company{color:var(--accent);font-size:0.95rem;margin-bottom:10px;}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .job li{
+    position:relative;padding-left:18px;color:var(--text-dim);font-size:0.95rem;
+  }
+  .job li::before{
+    content:'—';position:absolute;left:0;color:var(--text-faint);
+  }
+
+  /* ---------- Education ---------- */
+  .edu-item{
+    display:flex;justify-content:space-between;align-items:baseline;
+    flex-wrap:wrap;gap:4px 16px;
+    padding:16px 0;border-bottom:1px solid var(--border);
+  }
+  .edu-item:last-child{border-bottom:none;}
+  .edu-name{font-weight:700;color:var(--text);}
+  .edu-detail{color:var(--text-dim);font-size:0.92rem;}
+  .edu-dates{color:var(--text-faint);font-size:0.85rem;white-space:nowrap;}
+
+  /* ---------- Contact / Footer ---------- */
+  .contact-grid{
+    display:flex;flex-wrap:wrap;gap:14px;
+  }
+  .contact-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--card);border:1px solid var(--border);
+    padding:11px 18px;border-radius:10px;
+    color:var(--text);font-size:0.92rem;font-weight:500;
+    transition:border-color 0.15s, color 0.15s;
+  }
+  .contact-btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+
+  footer{
+    padding:32px 0 48px;
+    color:var(--text-faint);font-size:0.85rem;
+    text-align:center;
+  }
+
+  @media (max-width:600px){
+    .hero{flex-direction:column;text-align:center;padding-top:48px;}
+    .hero-meta{justify-content:center;}
+    h1{font-size:2.1rem;}
+    .job-header{flex-direction:column;}
+    .nav-inner{padding:12px 16px;flex-wrap:wrap;row-gap:8px;}
+    .nav-name{font-size:0.9rem;white-space:nowrap;width:100%;}
+    .nav-links{gap:12px;font-size:0.8rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">Ross Malcolm</div>
+    <nav class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <img class="hero-photo" src="assets/headshot.jpg" alt="Portrait of Ross Malcolm">
+    <div class="hero-text">
+      <div class="eyebrow">DevOps Engineer</div>
+      <h1>Ross Malcolm</h1>
+      <p class="hero-role">Cloud infrastructure, CI/CD, and automation — 5+ years turning fragile release processes into reliable pipelines.</p>
+      <div class="hero-meta">
+        <span>📍 Kitchener, ON</span>
+        <span>✉️ <a href="mailto:contact@rossmalcolm.ca">contact@rossmalcolm.ca</a></span>
+        <span>💻 <a href="https://github.com/RossMalcolm" target="_blank" rel="noopener">github.com/RossMalcolm</a></span>
+        <span>🔗 <a href="https://www.linkedin.com/in/ross-malcolm/" target="_blank" rel="noopener">linkedin.com/in/ross-malcolm</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="lede">
+      Experienced DevOps Engineer with a software engineering background and over 5 years of experience in cloud
+      infrastructure, CI/CD pipelines, and automation. Skilled in Azure, AWS, and infrastructure automation, with a
+      proven ability to optimize deployment processes and mentor teams. Seeking development or DevOps roles where I
+      can leverage my engineering expertise, leadership skills, and passion for coding to drive impactful solutions
+      and contribute to organizational growth.
+    </p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Modernization &amp; Microservices Integration Lead</span>
+        <span class="job-dates">Nov 2025 – Present</span>
+      </div>
+      <div class="job-company">Brock Solutions · Kitchener, ON</div>
+      <ul>
+        <li>Led cross-functional coordination between modernization and deployment teams, enabling smooth transition from legacy systems to microservices architecture</li>
+        <li>Streamlined release processes and reduced deployment friction by aligning workflows across 12 custom projects</li>
+        <li>Identified and mitigated migration risks, ensuring stable production releases during large-scale system transformation</li>
+        <li>Improved visibility into release pipelines by tracking dependencies, blockers, and rollout progress across multiple teams</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Software Deployment Lead</span>
+        <span class="job-dates">Sep 2023 – Nov 2025</span>
+      </div>
+      <div class="job-company">Brock Solutions · Kitchener, ON</div>
+      <ul>
+        <li>Mentored a team of 4 junior engineers to streamline production release management and delivery for 30+ live production applications, improving deployment efficiency and reducing handoff delays through automated support processes</li>
+        <li>Spearheaded configuration process improvements to automate web application configuration during releases, using YAML-based deployment pipelines, increasing consistency across environments, and reducing configuration time by 30%</li>
+        <li>Approved company-wide releases as a key member of the change review board, ensuring security, stability, and best practices</li>
+        <li>Acted as the primary escalation point for over 120 upgrades, resolving critical bugs that prevented over 25 rollbacks</li>
+        <li>Analyzed VM statistics to identify performance bottlenecks and improve message processing for high-traffic clients</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Software Deployment Engineer</span>
+        <span class="job-dates">May 2023 – Sep 2023</span>
+      </div>
+      <div class="job-company">Brock Solutions · Kitchener, ON</div>
+      <ul>
+        <li>Collaborated with major airlines such as Southwest Airlines and British Airways to deploy mission-critical software, ensuring seamless travel for over 200 million passengers annually through efficient baggage handling</li>
+        <li>Engineered custom Azure applications for new clients, accelerating their operational readiness by 75%</li>
+        <li>Conducted rigorous testing on new software features leveraging an Android mobile client, web client, RabbitMQ, geo-replication, and database health, ensuring a deployment success rate of 99.98% through optimized feature validation</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Software Developer</span>
+        <span class="job-dates">Aug 2021 – May 2023</span>
+      </div>
+      <div class="job-company">Golf Canada · Oakville, ON</div>
+      <ul>
+        <li>Developed a feature to display PGA and LPGA tournament information in the mobile app using Laravel, elevating spectator experiences, increasing monthly downloads 4x, and boosting tournament engagement hours by 50%</li>
+        <li>Transferred websites to Amazon Web Services from Linode servers to increase server reliability and prevent recurring attacks</li>
+        <li>Deployed software using AWS products, including Elastic Beanstalk, EC2, CloudFront, and S3, to scale server performance</li>
+        <li>Converted a database of over 400,000 members to a cloud-based CRM, rapidly increasing process speeds</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Business Systems Analyst Co-op</span>
+        <span class="job-dates">May 2019 – Apr 2021</span>
+      </div>
+      <div class="job-company">Wilfrid Laurier University · Waterloo, ON</div>
+      <ul>
+        <li>Utilized SQL Developer to generate reports, ensuring management could make informed decisions on student admissions</li>
+        <li>Evaluated scheduling software solutions to adapt to changing business needs during virtual operations, and developed training materials to launch the software to all students and staff involved</li>
+        <li>Programmed and tested mobile applications using VBA and PowerApps to integrate cloud computing into international recruitment, making candidate data instantly available in real-time to 50 internal and external recruiters</li>
+        <li>Saved 80 hours of manual labour per month by integrating SQL queries into Excel to automate residence-matching processes</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills &amp; Leadership</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Programming Languages</h3>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Java</span>
+          <span class="tag">SQL</span><span class="tag">HTML</span><span class="tag">CSS</span>
+          <span class="tag">PHP</span><span class="tag">C</span><span class="tag">C++</span>
+          <span class="tag">Swift</span><span class="tag">Kotlin</span><span class="tag">VBA</span>
+          <span class="tag">R</span><span class="tag">Ruby</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Frameworks &amp; Libraries</h3>
+        <div class="tag-list">
+          <span class="tag">Node.js</span><span class="tag">React / Redux</span><span class="tag">Rails</span>
+          <span class="tag">Express</span><span class="tag">Laravel</span><span class="tag">Django</span>
+          <span class="tag">MongoDB / Mongoose</span><span class="tag">jQuery</span><span class="tag">Bootstrap</span>
+          <span class="tag">SASS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Cloud &amp; DevOps</h3>
+        <div class="tag-list">
+          <span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">CI/CD Pipelines</span>
+          <span class="tag">Elastic Beanstalk</span><span class="tag">EC2</span><span class="tag">CloudFront</span>
+          <span class="tag">S3</span><span class="tag">YAML Automation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Leadership</h3>
+        <div class="tag-list">
+          <span class="tag">VP of Technology, Technology Management Laurier</span>
+          <span class="tag">Teaching Assistant, Wilfrid Laurier University</span>
+          <span class="tag">Doon Pioneer Park Community Centre Award</span>
+          <span class="tag">Duke of Edinburgh Bronze Medal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">University of Toronto</div>
+        <div class="edu-detail">Machine Learning Software Foundations Certificate</div>
+      </div>
+      <div class="edu-dates">2024 – Present · Toronto, ON</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">Wilfrid Laurier University</div>
+        <div class="edu-detail">B.Sc. Computer Science, 3.6 / 4.0 GPA</div>
+      </div>
+      <div class="edu-dates">2017 – 2021 · Waterloo, ON</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in touch</h2>
+    <p class="lede" style="margin-bottom:20px;">Open to development and DevOps opportunities. Reach out any time.</p>
+    <div class="contact-grid">
+      <a class="contact-btn" href="mailto:rossmalc75@gmail.com">✉️ Email</a>
+      <a class="contact-btn" href="https://www.linkedin.com/in/ross-malcolm/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+      <a class="contact-btn" href="https://github.com/RossMalcolm" target="_blank" rel="noopener">💻 GitHub</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © <span id="year"></span> Ross Malcolm · Kitchener, ON
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
