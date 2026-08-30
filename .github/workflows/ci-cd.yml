@@ -44,6 +44,33 @@ jobs:
           args: --config .lychee.toml index.html
           fail: true
 
+  web3forms-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Web3Forms access key is configured
+        run: |
+          if grep -q 'YOUR_WEB3FORMS_ACCESS_KEY' index.html; then
+            echo "::error::Web3Forms access_key is still the placeholder value — the contact form cannot send mail"
+            exit 1
+          fi
+          if ! grep -qE 'name="access_key" value="[0-9a-f-]{10,}"' index.html; then
+            echo "::error::Web3Forms access_key field is missing or malformed"
+            exit 1
+          fi
+
+  heatmap-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify GitHub contribution chart renders real content
+        run: |
+          SIZE=$(curl -s -o /tmp/chart.svg -w '%{size_download}' "https://ghchart.rshah.org/7ea8ff/RossMalcolm")
+          echo "Downloaded $SIZE bytes"
+          if [ "$SIZE" -lt 2048 ]; then
+            echo "::error::GitHub contribution chart response is suspiciously small ($SIZE bytes) — the service may be down or returning a broken/empty chart"
+            exit 1
+          fi
+
   lighthouse:
     runs-on: ubuntu-latest
     needs: build
@@ -62,7 +89,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build, validate-html, check-links, lighthouse]
+    needs: [build, validate-html, check-links, web3forms-check, heatmap-check, lighthouse]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     permissions:
       pages: write
