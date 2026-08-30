@@ -1,0 +1,5 @@
+# Web3Forms only accepts POST submissions, so a link-checker GET/HEAD
+# request against it will always look "broken" even though it works fine.
+exclude = [
+  "^https://api\\.web3forms\\.com",
+]
