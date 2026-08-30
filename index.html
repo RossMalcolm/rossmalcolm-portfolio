@@ -124,6 +124,9 @@
     margin-bottom:20px;color:var(--text);
   }
   .lede{color:var(--text-dim);font-size:1.05rem;max-width:70ch;}
+  .mb-20{margin-bottom:20px;}
+  .mt-28{margin-top:28px;}
+  .hp-field{display:none;}
 
   /* ---------- Skills ---------- */
   .skills-grid{
@@ -264,7 +267,7 @@
 
 <div class="wrap">
 
-  <section class="hero" style="border-top:none;">
+  <section class="hero">
     <img class="hero-photo" src="assets/headshot.jpg" alt="Portrait of Ross Malcolm">
     <div class="hero-text">
       <div class="eyebrow">DevOps Engineer</div>
@@ -409,7 +412,7 @@
 
   <section id="activity">
     <h2>GitHub Activity</h2>
-    <p class="lede" style="margin-bottom:20px;">A year of public contributions on <a href="https://github.com/RossMalcolm" target="_blank" rel="noopener">github.com/RossMalcolm</a>.</p>
+    <p class="lede mb-20">A year of public contributions on <a href="https://github.com/RossMalcolm" target="_blank" rel="noopener">github.com/RossMalcolm</a>.</p>
     <div class="chart-card">
       <img src="https://ghchart.rshah.org/7ea8ff/RossMalcolm" alt="Ross Malcolm's GitHub contribution graph" loading="lazy" width="663" height="104">
     </div>
@@ -435,12 +438,12 @@
 
   <section id="contact">
     <h2>Get in touch</h2>
-    <p class="lede" style="margin-bottom:20px;">Open to development and DevOps opportunities. Send a message directly, or reach out any other way below.</p>
+    <p class="lede mb-20">Open to development and DevOps opportunities. Send a message directly, or reach out any other way below.</p>
 
     <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="331df08c-c871-4212-9ff2-d7e981880195">
       <input type="hidden" name="subject" value="New message from rossmalcolm.ca">
-      <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1">
 
       <div class="form-row">
         <label for="cf-name">Name</label>
@@ -458,7 +461,7 @@
       <p id="form-status" class="form-status" aria-live="polite"></p>
     </form>
 
-    <div class="contact-grid" style="margin-top:28px;">
+    <div class="contact-grid mt-28">
       <a class="contact-btn" href="mailto:contact@rossmalcolm.ca">✉️ Email</a>
       <a class="contact-btn" href="https://www.linkedin.com/in/ross-malcolm/" target="_blank" rel="noopener">🔗 LinkedIn</a>
       <a class="contact-btn" href="https://github.com/RossMalcolm" target="_blank" rel="noopener">💻 GitHub</a>

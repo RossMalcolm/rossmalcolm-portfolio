@@ -1,5 +1,9 @@
 # Web3Forms only accepts POST submissions, so a link-checker GET/HEAD
 # request against it will always look "broken" even though it works fine.
+#
+# LinkedIn returns a custom 999 status to block automated crawlers/bots,
+# even though the link works fine in a real browser.
 exclude = [
   "^https://api\\.web3forms\\.com",
+  "^https://www\\.linkedin\\.com",
 ]
